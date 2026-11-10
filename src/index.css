@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Styles ───────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #3DDC84 #090D0B;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #090D0B;
+  color: #E0E7E3;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090D0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #3DDC84;
+  border-radius: 3px;
+}
+
+/* ── Glow Effects ──────────────────────────────────── */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, rgba(61,220,132,0.3), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* ── Glassmorphism ─────────────────────────────────── */
+.glass {
+  background: rgba(17, 25, 21, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(61, 220, 132, 0.08);
+}
+
+/* ── Grid Pattern Background ───────────────────────── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(61,220,132,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,220,132,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Text Gradient ─────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #3DDC84, #2BB866, #3DDC84);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Form Inputs & Autofill Fixes ──────────────────── */
+input, textarea {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  caret-color: #3DDC84 !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #7A8F82 !important;
+  -webkit-text-fill-color: #7A8F82 !important;
+  opacity: 1 !important;
+}
+
+/* Chrome, Safari, Edge, Opera autofill fix for dark developer UI */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: #FFFFFF !important;
+  caret-color: #3DDC84 !important;
+  -webkit-box-shadow: 0 0 0 1000px #0F1410 inset !important;
+  box-shadow: 0 0 0 1000px #0F1410 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* ── Section animations ────────────────────────────── */
+.section-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
