@@ -21,19 +21,14 @@ const TerminalText = () => {
 
 
   return (
-    <div className="bg-black/60 border border-android/30 p-4 rounded-xl font-mono text-sm text-android text-left mt-6 max-w-lg min-w-0 mx-auto whitespace-pre-line [overflow-wrap:anywhere] shadow-lg shadow-android/10 backdrop-blur-md">
-      <div className="flex items-center gap-1.5 mb-2 pb-2 border-b border-android-border/40">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
-        <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
-        <span className="text-[11px] text-android-muted ml-2 font-mono">bash - dev-terminal</span>
-      </div>
+    <div className="min-w-0 whitespace-pre-wrap [overflow-wrap:anywhere] text-ink">
+      <p className="mb-3 font-mono text-[11px] text-muted">bash - dev-terminal</p>
       <p className="sr-only">{fullText}</p>
       <div aria-hidden="true" className="grid">
         <span className="invisible col-start-1 row-start-1">{fullText}_</span>
         <span className="col-start-1 row-start-1">
           {reduceMotion ? fullText : text}
-          <span className="motion-safe:animate-pulse font-bold text-android">_</span>
+          <span className="motion-safe:animate-pulse font-bold text-primary">_</span>
         </span>
       </div>
     </div>

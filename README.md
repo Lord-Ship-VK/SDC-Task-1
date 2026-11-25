@@ -2,21 +2,18 @@
 
 Venkatesh Kalyane ([@Lord-Ship-VK](https://github.com/Lord-Ship-VK)) built this Vite, React, and Tailwind CSS site for Task 1 of the Software Development Cell application under Android Club at VIT Bhopal.
 
-Club statistics, project examples, contact details, and the event timeline use sample data for the showcase.
+Project examples, contact details, and the event timeline use sample data for the showcase.
 
-![Theme](https://img.shields.io/badge/Theme-Android%20Emerald-3DDC84?style=for-the-badge)
-![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20TailwindCSS-090D0B?style=for-the-badge)
+![Theme](https://img.shields.io/badge/Theme-Material%20You%20Dusk-8AB4F8?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20TailwindCSS-0B0D12?style=for-the-badge)
 
 ---
 
 ## 🎨 Design System & Theme
 
-- **Background:** `#090D0B` (Deep obsidian black with subtle grid pattern)
-- **Cards & Surfaces:** `#111915` (Deep emerald-tinted dark cards)
-- **Primary Accent:** `#3DDC84` (Official Android Emerald)
-- **Hover & Glows:** Interactive CSS glow borders and ambient radial illumination
-- **Navbar:** Sticky glassmorphism backdrop (`backdrop-blur-xl`) with dynamic scroll shadows
-- **Typography:** Inter (Headings & Body), JetBrains Mono (Terminal & Code Badges)
+Material You Dusk uses a dark canvas (`#0B0D12`) and layered surfaces (`#14171F`, `#1B1F29`). Blue (`#8AB4F8`) highlights actions, lilac (`#D0A3FF`) accents gradients, and Android green (`#3DDC84`) marks the logo and status dots. Geist and Geist Mono carry the interface and terminal text.
+
+The hero combines a static mesh and grain with a glass phone. Its droid follows a fine pointer and sways on touch devices. Reduced-motion preferences disable both effects. Wing and project cards share a cursor-tracking spotlight.
 
 ---
 
@@ -42,9 +39,7 @@ The showcase presents four Android Club wings.
 ## 🧩 Key Features
 
 - **⚡ Hero & Recruitment Terminal:**
-  - SDC Task 1 showcase badge
   - Typewriter terminal with a screen-reader transcript and instant text when reduced motion is enabled
-  - Sample club stats for members, projects, hackathons, and wings
 - **📂 Interactive Projects Showcase:**
   - Filter projects dynamically by category (`All`, `SDC Web`, `Android`, `R&D / ML`)
   - Share a filtered view with `/?track=sdc-web#projects`. The available tracks are `all`, `sdc-web`, `android`, and `rd-ml`.
@@ -67,14 +62,15 @@ android-club-website/
 ├── vite.config.js           # Vite build configuration
 ├── src/
 │   ├── main.jsx             # React DOM root mounting
-│   ├── App.jsx              # Core layout and IntersectionObserver scroll animations
-│   ├── index.css            # Tailwind directives, custom glows, and glassmorphism
+│   ├── App.jsx              # Page sections and navigation
+│   ├── index.css            # Tailwind directives, mesh, grain, glass, and droid motion
 │   └── components/
 │       ├── Navbar.jsx       # Glassmorphic header with mobile drawer
-│       ├── Hero.jsx         # Hero section with stats and CTAs
+│       ├── Hero.jsx         # Interactive droid, glass phone, and CTAs
 │       ├── TerminalText.jsx # Interactive animated typewriter terminal
 │       ├── About.jsx        # Club mission and core pillars
-│       ├── Wings.jsx        # 4 interactive division tabs with tech badges
+│       ├── WingsBento.jsx   # Responsive four-wing grid
+│       ├── SpotlightCard.jsx # Pointer-reactive border and surface
 │       ├── Projects.jsx     # Filterable project portfolio grid
 │       ├── Events.jsx       # Hackathon and bootcamp timeline
 │       ├── Contact.jsx      # Contact form, local preview, and submission feedback

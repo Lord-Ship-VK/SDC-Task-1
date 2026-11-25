@@ -52,7 +52,7 @@ const events = [
 export default function Events() {
   return (
     <section id="events" className="py-24 px-6 relative scroll-mt-20">
-      <div className="max-w-6xl mx-auto section-animate">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,14 +61,14 @@ export default function Events() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-mono font-semibold text-android-emerald tracking-widest uppercase">
+          <span className="text-xs font-mono font-semibold text-primary tracking-widest uppercase">
             Experiences
           </span>
-          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-ink">
             Events &{' '}
-            <span className="text-gradient">Hackathons</span>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hackathons</span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-android-muted text-lg">
+          <p className="mt-4 max-w-2xl mx-auto text-muted text-lg">
             Sample events for the showcase. Dates, attendance, and registration
             statuses are illustrative.
           </p>
@@ -77,7 +77,7 @@ export default function Events() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-android-emerald/50 via-android-emerald/20 to-transparent" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
 
           <div className="space-y-12">
             {events.map((event, idx) => {
@@ -92,7 +92,7 @@ export default function Events() {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-android-emerald border-4 border-android-bg z-10" />
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-4 border-canvas z-10" />
 
                   {/* Spacer for alignment */}
                   <div className="hidden md:block md:w-1/2" />
@@ -103,44 +103,44 @@ export default function Events() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="w-full min-w-0 md:w-1/2 glow-border rounded-2xl bg-android-card border border-android-border p-4 sm:p-6 hover:border-android-emerald/30 transition-all group"
+                    className="w-full min-w-0 md:w-1/2 rounded-2xl bg-surface border border-white/10 p-4 sm:p-6 hover:border-primary/30 transition-all group"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                       <div className="flex min-w-0 items-center gap-3">
-                        <div className="w-10 h-10 shrink-0 rounded-xl bg-android-emerald/10 border border-android-emerald/20 flex items-center justify-center group-hover:bg-android-emerald/20 transition-colors">
-                          <Icon className="w-5 h-5 text-android-emerald" />
+                        <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Icon className="w-5 h-5 text-primary" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-bold text-white [overflow-wrap:anywhere]">{event.title}</h3>
+                          <h3 className="text-lg font-bold text-ink [overflow-wrap:anywhere]">{event.title}</h3>
                         </div>
                       </div>
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${
                           event.status === 'Upcoming'
-                            ? 'bg-android-emerald/20 text-android-emerald'
-                            : 'bg-android-surface text-android-muted'
+                            ? 'bg-primary/20 text-primary'
+                            : 'bg-surface-high text-muted'
                         }`}
                       >
                         {event.status}
                       </span>
                     </div>
 
-                    <p className="text-sm text-android-muted leading-relaxed mb-4">
+                    <p className="text-sm text-muted leading-relaxed mb-4">
                       {event.description}
                     </p>
 
                     {/* Meta */}
-                    <div className="flex flex-wrap items-center gap-4 text-xs text-android-muted mb-4">
+                    <div className="flex flex-wrap items-center gap-4 text-xs text-muted mb-4">
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-android-emerald" />
+                        <Calendar className="w-3.5 h-3.5 text-primary" />
                         {event.date}
                       </span>
                       <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-android-emerald" />
+                        <MapPin className="w-3.5 h-3.5 text-primary" />
                         {event.location}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-android-emerald" />
+                        <Users className="w-3.5 h-3.5 text-primary" />
                         {event.attendees}
                       </span>
                     </div>
@@ -150,7 +150,7 @@ export default function Events() {
                       {event.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 rounded-md bg-android-surface border border-android-border text-xs text-android-muted"
+                          className="px-2 py-1 rounded-md bg-surface-high border border-white/10 text-xs text-muted"
                         >
                           {tag}
                         </span>

@@ -32,20 +32,20 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-android-border bg-android-surface/50">
+    <footer className="border-t border-white/10 bg-surface-high/50">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
             <a href="#home" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-android-emerald/10 border border-android-emerald/20 flex items-center justify-center">
-                <Smartphone className="w-4 h-4 text-android-emerald" />
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <Smartphone className="w-4 h-4 text-android" />
               </div>
-              <span className="text-base font-bold text-white">
-                Android<span className="text-android-emerald">Club</span>
+              <span className="text-base font-bold text-ink">
+                Android<span className="text-android">Club</span>
               </span>
             </a>
-            <p className="text-sm text-android-muted leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               Building the next generation of developers, one project at a time.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Link columns */}
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h4 className="text-sm font-semibold text-white mb-4">
+              <h4 className="text-sm font-semibold text-ink mb-4">
                 {group.title}
               </h4>
               <ul className="space-y-2">
@@ -61,7 +61,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-android-muted hover:text-android-emerald transition-colors"
+                      className="text-sm text-muted hover:text-primary transition-colors"
                     >
                       {link.label}
                     </a>
@@ -73,12 +73,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-android-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-android-muted">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted">
             Android Club · SDC Task 1 showcase
           </p>
-          <p className="flex items-center gap-1 text-xs text-android-muted">
-            Crafted with <Heart className="w-3 h-3 text-android-emerald fill-android-emerald" /> by Venkatesh Kalyane
+          <p className="flex items-center gap-1 text-xs text-muted">
+            Crafted with <Heart className="w-3 h-3 text-primary fill-secondary" /> by Venkatesh Kalyane
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Github, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
+import SpotlightCard from './SpotlightCard'
 
 const categories = [
   { id: 'all', label: 'All' },
@@ -74,7 +75,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 px-6 relative scroll-mt-20">
-      <div className="max-w-6xl mx-auto section-animate">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,14 +84,14 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="text-xs font-mono font-semibold text-android-emerald tracking-widest uppercase">
+          <span className="text-xs font-mono font-semibold text-primary tracking-widest uppercase">
             What We Build
           </span>
-          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-ink">
             Project{' '}
-            <span className="text-gradient">Showcase</span>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Showcase</span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-android-muted text-lg">
+          <p className="mt-4 max-w-2xl mx-auto text-muted text-lg">
             Explore sample projects across SDC, Android, and R&amp;D.
           </p>
         </motion.div>
@@ -105,8 +106,8 @@ export default function Projects() {
               onClick={() => selectTrack(id)}
               className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                 filter === id
-                  ? 'bg-android-emerald text-android-bg'
-                  : 'bg-android-card border border-android-border text-android-muted hover:border-android-emerald/30 hover:text-white'
+                  ? 'bg-primary text-canvas'
+                  : 'bg-surface border border-white/10 text-muted hover:border-primary/30 hover:text-ink'
               }`}
             >
               {label}
@@ -116,30 +117,23 @@ export default function Projects() {
 
         {/* Project grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glow-border rounded-2xl bg-android-card border border-android-border p-6 flex flex-col hover:border-android-emerald/30 transition-all group"
-            >
+          {filtered.map((project) => (
+            <SpotlightCard key={project.title} as="article" innerClassName="flex flex-col p-6">
               {/* Category badge */}
               <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 rounded-full bg-android-emerald/10 text-android-emerald text-xs font-mono">
+                <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono">
                   {categories.find(({ id }) => id === project.track).label}
                 </span>
-                <div className="flex items-center gap-1 text-android-muted text-xs">
-                  <Star className="w-3.5 h-3.5 fill-android-emerald text-android-emerald" />
+                <div className="flex items-center gap-1 text-muted text-xs">
+                  <Star className="w-3.5 h-3.5 fill-secondary text-primary" />
                   {project.stars}
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-android-emerald transition-colors">
+              <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
-              <p className="text-sm text-android-muted leading-relaxed mb-4 flex-1">
+              <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
                 {project.description}
               </p>
 
@@ -148,23 +142,23 @@ export default function Projects() {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-1 rounded-md bg-android-surface border border-android-border text-xs text-android-muted"
+                    className="px-2 py-1 rounded-md bg-surface-high border border-white/10 text-xs text-muted"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <p className="pt-4 border-t border-android-border text-sm text-android-muted">
+              <p className="pt-4 border-t border-white/10 text-sm text-muted">
                 Demo coming soon
               </p>
-            </motion.div>
+            </SpotlightCard>
           ))}
         </div>
 
         <a
           href="https://github.com/Lord-Ship-VK"
-          className="mt-6 inline-flex items-center gap-2 text-sm text-android-muted hover:text-android-emerald transition-colors"
+          className="mt-6 inline-flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors"
         >
           <Github className="w-4 h-4" aria-hidden="true" />
           More projects from the author
